@@ -4,7 +4,7 @@
 
 Registered users can write and post blogs. They can also edit or delete their blogs, or choose to read comments left by readers.
 
-## Event-Flow-Frontend
+## Event-Flow-Frontendx
 
 Django Web App. created with Python and SQL.
 
