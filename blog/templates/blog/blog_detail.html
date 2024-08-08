@@ -1,0 +1,16 @@
+<!-- tunr/templates/blog/blog_detail.html -->
+<h2>{{ blog.title }} <a href="">(edit)</a></h2>
+<h4>{{ blog.author }}</h4>
+
+<img src="{{ blog.cover_url }}" alt="" class="cover-photo" />
+
+<h3>Comments <a href="{% url 'comment_create' %}">(+)</a></h3>
+<ul>
+  {% for comment in blog.comments.all %}
+  <li>
+    <a href="{% url 'comment_detail' pk=comment.pk %}"
+      >{{ comment.username }}-{{ comment.content }}</a
+    >
+  </li>
+  {% endfor %}
+</ul>
