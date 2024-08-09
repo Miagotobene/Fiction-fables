@@ -1,16 +1,21 @@
-<!-- tunr/templates/blog/blog_detail.html -->
-<h2>{{ blog.title }} <a href="">(edit)</a></h2>
-<h4>{{ blog.author }}</h4>
+{% extends 'blog/base.html' %} {% block content %}
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <section class="sections">
+        <div class="columns">
+          <div class="columns is-8 is-offset-2">
+            <div class="content is-medium">
+              <h2 class="subtitle is-4">{{blog.created_on|date:'M-d-Y'}}</h2>
+              <h1 class="title">{{blog.title}}</h1>
+              <p><strong>{{blog.intro}}</strong></p>
 
-<img src="{{ blog.cover_url }}" alt="" class="cover-photo" />
-
-<h3>Comments <a href="{% url 'comment_create' %}">(+)</a></h3>
-<ul>
-  {% for comment in blog.comments.all %}
-  <li>
-    <a href="{% url 'comment_detail' pk=comment.pk %}"
-      >{{ comment.username }}-{{ comment.content }}</a
-    >
-  </li>
-  {% endfor %}
-</ul>
+              <p>{{blog.content}}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -4,7 +4,7 @@ from .forms import BlogForm, CommentForm
 
 # home page
 def home_page(request):
-    # render all blogs in the home page
+    # render all blogs in the home page: Get: get all blogs
     blogs = Blog.objects.all()
     return render(request, 'blog/home.html', {'blogs': blogs})
 
@@ -14,11 +14,6 @@ def about_page(request):
     return render(request, 'blog/about.html')
 
 # Create views for Blogs here
-# Get: get all blogs
-def blog_list(request):
-    blogs = Blog.objects.all()
-    return render(request, 'blog/blog_list.html', {'blogs': blogs})
-
 # Get: get a blog
 def blog_detail(request, pk):
     blog = Blog.objects.get(id=pk)
