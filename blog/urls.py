@@ -9,7 +9,7 @@ urlpatterns = [
 
 
     # paths for authors
-    path('/authors', views.author_list, name='author_list'),
+    path('authors', views.author_list, name='author_list'),
 
     # paths for comments
     path('comments/', views.comment_list, name='comment_list'),

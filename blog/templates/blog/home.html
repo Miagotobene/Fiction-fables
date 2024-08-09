@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %} {% block content %}
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <section class="sections">
+        <div class="columns">
+          <div class="columns is-8 is-offset-2">
+            {% for blog in blogs%}
+            <div class="content is-medium">
+              <h2 class="subtitle is-4">{{blog.created_on|date:'M-d-Y'}}</h2>
+              <h1 class="title">{{blog.title}}</h1>
+              <p>{{blog.intro}}</p>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
