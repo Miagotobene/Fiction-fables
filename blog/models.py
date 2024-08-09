@@ -41,3 +41,9 @@ class Comment(models.Model):
     def __str__(self):
         return self.username
     
+# Create category model here
+class Category(models.Model):
+    username = models.CharField(max_length=200, default='')
+    slug  = models.SlugField()
+
+

@@ -11,10 +11,11 @@
               <p><strong>{{blog.intro}}</strong></p>
 
               <p>{{blog.content}}</p>
+              <p><strong>{{blog.author}}</strong></p>
               <hr />
               <h2 class="subtitle is-4">Comments</h2>
 
-              <form method="POST">
+              <form method="POST" class="mb-6">
                 {% csrf_token %} {{ form.as_p }}
                 <div class="control">
                   <button class="button is-success">Submit Comment</button>
