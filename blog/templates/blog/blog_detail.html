@@ -11,6 +11,24 @@
               <p><strong>{{blog.intro}}</strong></p>
 
               <p>{{blog.content}}</p>
+              <hr />
+              <h2 class="subtitle is-4">Comments</h2>
+
+              <form method="POST">
+                {% csrf_token %} {{ form.as_p }}
+                <div class="control">
+                  <button class="button is-success">Submit Comment</button>
+                </div>
+              </form>
+
+              {% for comment in blog.comments.all %}
+              <article class="media box">
+                <div class="media-content">
+                  <strong>{{ comment.username }}</strong>
+                  {{ comment.content }}
+                </div>
+              </article>
+              {% endfor %}
             </div>
           </div>
         </div>

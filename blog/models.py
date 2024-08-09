@@ -34,8 +34,9 @@ class Blog(models.Model):
 # Create comments model here
 class Comment(models.Model):
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name='comments')
-    username = models.CharField(max_length=100, default='Please add your name')
-    content = models.CharField(max_length=300, default  ='add comments here')
+    username = models.CharField(max_length=200, default='')
+    content = models.TextField()
+    
 
     def __str__(self):
         return self.username

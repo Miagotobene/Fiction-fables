@@ -17,7 +17,36 @@ def about_page(request):
 # Get: get a blog
 def blog_detail(request, pk):
     blog = Blog.objects.get(id=pk)
-    return render(request, 'blog/blog_detail.html', {'blog': blog})
+
+    # Comment form code goes here
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.blog = blog
+            comment.save()
+            return redirect('blog_detail', pk=pk)
+    else:
+        form = CommentForm()
+    return render(request, 'blog/blog_detail.html', {'blog': blog, 'form': form})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Post: create a blog
 def blog_create(request):
