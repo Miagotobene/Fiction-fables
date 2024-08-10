@@ -96,8 +96,6 @@ def search(request):
 
 
 
-
-
 # Create views for Authors here
 def author_create(request):
     if request.method == 'POST':
