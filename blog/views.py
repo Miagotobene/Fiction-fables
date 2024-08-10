@@ -97,6 +97,12 @@ def search(request):
 
 
 # Create views for Authors here
+def author_list(request):
+    authors = Author.objects.all()
+    return render(request, 'blog/author_list.html', {'authors': authors})
+
+
+
 def author_create(request):
     if request.method == 'POST':
         form = AuthorForm(request.POST)

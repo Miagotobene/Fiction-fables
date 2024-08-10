@@ -16,7 +16,7 @@ urlpatterns = [
 
 
     # paths for authors
-    # path('/blogs/authors', views.author_list, name='author_list'),
+    path('blogs/authors', views.author_list, name='author_list'),
     path('blogs/authors/new', views.author_create, name='author_create'),
 
     # paths for post categories
