@@ -15,8 +15,8 @@ def about_page(request):
 
 # Create views for Blogs here
 # Get: get a blog
-def blog_detail(request, categroy_pk, pk):
-    blog = Blog.objects.get(id=pk)
+def blog_detail(request, category_pk, pk):
+    blog = Blog.objects.get(pk=pk)
 
     # Comment form code goes here
     if request.method == 'POST':
@@ -33,9 +33,8 @@ def blog_detail(request, categroy_pk, pk):
 
 
 # Create views for Categories here
-
 def category(request, pk):
-    category = Category.objects.get(id=pk)
+    category = Category.objects.get(pk=pk)
 
     return render(request, 'blog/category.html', {'category': category})
 

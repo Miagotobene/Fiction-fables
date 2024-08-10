@@ -8,17 +8,18 @@
             <div class="content is-medium">
               <h2 class="subtitle is-4">{{blog.created_on|date:'M-d-Y'}}</h2>
               <h1 class="title">{{blog.title}}</h1>
-              <p><strong>{{blog.intro}}</strong></p>
-
-              <p>{{blog.content}}</p>
               <p>
                 <small
                   >Category:
-                  <a href="{% url 'category_title'  blog.category.slug}"
+                  <a href="{% url 'category_detail' blog.category.pk %}"
                     >{{blog.category}}</a
                   ></small
                 >
               </p>
+              <p><strong>{{blog.intro}}</strong></p>
+
+              <p>{{blog.content}}</p>
+
               <p><strong>{{blog.author}}</strong></p>
               <hr />
               <h2 class="subtitle is-4">Comments</h2>
