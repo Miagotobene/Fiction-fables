@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Author model here
 class Author(models.Model):
@@ -40,7 +41,7 @@ class Blog(models.Model):
     slug  = models.SlugField()
     intro = models.TextField()
     content = models.TextField()
-    cover_url = models.TextField()
+    cover_url = models.CharField(max_length=200)
     created_on = models.DateTimeField(auto_now_add= True)
     updated_on = models.DateTimeField(auto_now= True)
     status = models.CharField(max_length=10, choices=STATUS, default = Active)
@@ -51,6 +52,11 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+    
+    # Define a method to get the URL for this particular cat instance
+    def get_absolute_url(self):
+        # Use the 'reverse' function to dynamically find the URL for viewing this cat's details
+        return reverse('blog_detail', kwargs={'blog_id': self.id})
 
 
 # Create comments model here

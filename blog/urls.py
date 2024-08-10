@@ -9,10 +9,14 @@ urlpatterns = [
     # blog paths
     path('blogs/<int:category_pk>/<int:pk>/', views.blog_detail, name='blog_detail'),
     path('blogs/new', views.blog_create, name='blog_create'),
+    path('blogs/<int:pk>/edit/', views.blog_edit, name='blog_edit'),
+    path('blogs/<int:pk>/delete/', views.blog_delete, name='blog_delete'),
+
 
 
     # paths for authors
-    path('authors', views.author_list, name='author_list'),
+    # path('authors', views.author_list, name='author_list'),
+    path('authors/new', views.author_create, name='author_create'),
 
     # paths for post categories
     path('blogs/<int:pk>/', views.category, name='category_detail'),

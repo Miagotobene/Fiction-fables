@@ -1,29 +1,25 @@
 {% extends 'blog/base.html' %} {% block content %}
-
-<section class="hero">
-  <div class="hero-body">
-    <div class="container">
-      <section class="sections">
-        <div class="columns">
-          <div class="columns is-8 is-offset-2">
-            {% for blog in blogs%}
-            <div class="content is-medium">
-              <a href="{% url 'blog_detail' blog.category.pk blog.pk %}">
-                <h2 class="subtitle is-4">{{blog.created_on|date:'M-d-Y'}}</h2>
-                <h1 class="title">{{blog.title}}</h1>
-                <p>{{blog.intro}}</p>
-              </a>
-            </div>
-            {% empty %}
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}"/>
+{% endblock %} 
+<section class="card-container">
+  {% for blog in blogs%}
+  <div class="card">
+    <div class="card-content">
+      <div class="card-img-container">
+        <!-- <h2 class="card-title">{{blog.created_on|date:'M-d-Y'}}</h2> -->
+        <img src="{{ blog.cover_url }}" alt="" />
+        <a href="{% url 'blog_detail' blog.category.pk blog.pk %}">
+        <h1 class="card-title">{{blog.title}}</h1>
+        </a>
+        <p>{{blog.intro}}</p>
+      </div>
+    </div>
+    {% empty %}
             <div class="content">
               <p>There are no posts in this category</p>
             </div>
             {% endfor %}
-          </div>
-        </div>
-      </section>
-    </div>
-  </div>
-</section>
-
-{% endblock %}
+  </section>
+  {% endblock %}

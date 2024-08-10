@@ -20,11 +20,15 @@ from django.contrib import admin
 from django.urls import path
 from blog.views import home_page
 from blog.views import about_page
+from blog.views import sign_page
+
 
 
 urlpatterns = [
     path('admin', admin.site.urls),
     path('', home_page, name='homepage'),
     path('about/', about_page, name='aboutpage'),
+    path('signup/', sign_page, name='signpage'),
+
     path('blogs', include('blog.urls')),
 ]
