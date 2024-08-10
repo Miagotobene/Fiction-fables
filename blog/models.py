@@ -25,6 +25,15 @@ class Category(models.Model):
 
 # Create blogs model here
 class Blog(models.Model):
+    Active = 'active'
+    Draft = 'Draft'
+
+    # status of a post 
+    STATUS = (
+        (Active, 'Active'),
+        (Draft, 'Draft')
+    )
+
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='blogs')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='blogs')
     title = models.CharField(max_length=100)
@@ -34,6 +43,7 @@ class Blog(models.Model):
     cover_url = models.TextField()
     created_on = models.DateTimeField(auto_now_add= True)
     updated_on = models.DateTimeField(auto_now= True)
+    status = models.CharField(max_length=10, choices=STATUS, default = Active)
 
     class Meta:
         ordering = ('-created_on',)

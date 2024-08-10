@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
+from django.db.models import Q
 from .models import Blog, Comment, Author, Category
 from .forms import BlogForm, CommentForm
 
 # home page
 def home_page(request):
     # render all blogs in the home page: Get: get all blogs
-    blogs = Blog.objects.all()
+    blogs = Blog.objects.filter(status = Blog.Active)
     return render(request, 'blog/home.html', {'blogs': blogs})
 
 
@@ -16,7 +17,7 @@ def about_page(request):
 # Create views for Blogs here
 # Get: get a blog
 def blog_detail(request, category_pk, pk):
-    blog = Blog.objects.get(pk=pk)
+    blog = Blog.objects.get(pk=pk, status=Blog.Active)
 
     # Comment form code goes here
     if request.method == 'POST':
@@ -35,10 +36,17 @@ def blog_detail(request, category_pk, pk):
 # Create views for Categories here
 def category(request, pk):
     category = Category.objects.get(pk=pk)
+    blogs = category.blogs.filter(status=Blog.Active)
 
-    return render(request, 'blog/category.html', {'category': category})
+    return render(request, 'blog/category.html', {'category': category, 'blogs': blogs})
 
 
+# Create views for Search here
+def search(request):
+    query = request.GET.get('query', '')
+
+    blogs = Blog.objects.filter(Q(title__icontains=query) | Q(intro__icontains=query) | Q(content__icontains=query))
+    return render(request, 'blog/search.html', {'blogs': blogs, 'query': query})
 
 
 

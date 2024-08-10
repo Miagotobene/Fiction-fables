@@ -6,6 +6,10 @@
       <section class="sections">
         <div class="columns">
           <div class="columns is-8 is-offset-2">
+            <div class="content is-medium">
+              <h1>Search Results</h1>
+              <h3>Query "{{query}}"</h3>
+            </div>
             {% for blog in blogs%}
             <div class="content is-medium">
               <a href="{% url 'blog_detail' blog.category.pk blog.pk %}">
@@ -16,7 +20,7 @@
             </div>
             {% empty %}
             <div class="content">
-              <p>There are no posts in this category</p>
+              <p>There are no results for the given query</p>
             </div>
             {% endfor %}
           </div>
