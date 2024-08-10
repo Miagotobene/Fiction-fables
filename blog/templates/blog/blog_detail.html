@@ -11,6 +11,14 @@
               <p><strong>{{blog.intro}}</strong></p>
 
               <p>{{blog.content}}</p>
+              <p>
+                <small
+                  >Category:
+                  <a href="{% url 'category_title'  blog.category.slug}"
+                    >{{blog.category}}</a
+                  ></small
+                >
+              </p>
               <p><strong>{{blog.author}}</strong></p>
               <hr />
               <h2 class="subtitle is-4">Comments</h2>

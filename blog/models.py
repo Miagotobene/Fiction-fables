@@ -10,11 +10,23 @@ class Author(models.Model):
 
     def __str__(self):
         return self.name
+    
 
+# Create category model here
+class Category(models.Model):
+    title = models.CharField(max_length=200)
+    slug  = models.SlugField()
+    
+    class Meta:
+        ordering = ('title',)
+
+    def __str__(self):
+        return self.title
 
 # Create blogs model here
 class Blog(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='blogs')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='blogs')
     title = models.CharField(max_length=100)
     slug  = models.SlugField()
     intro = models.TextField()
@@ -41,9 +53,3 @@ class Comment(models.Model):
     def __str__(self):
         return self.username
     
-# Create category model here
-class Category(models.Model):
-    username = models.CharField(max_length=200, default='')
-    slug  = models.SlugField()
-
-

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Blog, Comment, Author
+from .models import Blog, Comment, Author, Category
 from .forms import BlogForm, CommentForm
 
 # home page
@@ -15,7 +15,7 @@ def about_page(request):
 
 # Create views for Blogs here
 # Get: get a blog
-def blog_detail(request, pk):
+def blog_detail(request, categroy_pk, pk):
     blog = Blog.objects.get(id=pk)
 
     # Comment form code goes here
@@ -32,6 +32,12 @@ def blog_detail(request, pk):
 
 
 
+# Create views for Categories here
+
+def category(request, pk):
+    category = Category.objects.get(id=pk)
+
+    return render(request, 'blog/category.html', {'category': category})
 
 
 
