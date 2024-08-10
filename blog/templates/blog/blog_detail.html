@@ -16,7 +16,13 @@
                   ></small
                 >
               </p>
-              <p><strong>{{blog.intro}}</strong></p>
+              {% if blog.cover_url %}
+
+              <figure class="image is-96x96 mb-6 ml-0">
+                <img src="{{ blog.cover_url }}" alt="" />
+              </figure>
+              {% endif %}
+              <p class="mt-6"><strong>{{blog.intro}}</strong></p>
 
               <p>{{blog.content}}</p>
 

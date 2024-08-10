@@ -44,8 +44,7 @@ def category(request, pk):
 # Create views for Search here
 def search(request):
     query = request.GET.get('query', '')
-
-    blogs = Blog.objects.filter(Q(title__icontains=query) | Q(intro__icontains=query) | Q(content__icontains=query))
+    blogs = Blog.objects.filter(status=Blog.Active).filter(Q(title__icontains=query) | Q(intro__icontains=query) | Q(content__icontains=query))
     return render(request, 'blog/search.html', {'blogs': blogs, 'query': query})
 
 
