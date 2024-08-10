@@ -1,0 +1,46 @@
+{% extends 'blog/base.html' %} {% load crispy_forms_tags %} {% block content %}
+<div class="cover">
+  <div class="container">
+    <div class="row mt-5 pt-3">
+      <div class="col-md-5 offset-md-6">
+        <div class="card my-3 shadow">
+          <div class="card-body border border-success p-2 mb-2">
+            <h4>Login Page</h4>
+            <hr />
+            <form method="POST">{% csrf_token %} {{ form|crispy }}</form>
+            <hr />
+            <div className="register-link">
+              <button type="submit">Login</button>
+              <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 
+<div className="wrapper">
+  <div className="form-box login">
+    <form onSubmit="{handleSubmit}">
+      <h1>Login</h1>
+      <div className="input-box">
+        <input type="text" placeholder="usename" name="username" />
+      </div>
+
+      <form method="POST">
+        {% csrf_token %} {{ form|crispy }}
+        <input class="btn btn-primary btn-block" type="submit" value="Login" />
+      </form>
+      <div className="input-box">
+        <input type="text" placeholder="Password" name="password" required />
+      </div>
+
+      <div className="register-link">
+        <button type="submit">Login</button>
+        <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+      </div>
+    </form>
+  </div>
+</div> -->
+{% endblock %}

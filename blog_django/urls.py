@@ -21,6 +21,10 @@ from django.urls import path
 from blog.views import home_page
 from blog.views import about_page
 from blog.views import sign_page
+from blog.views import login_page
+from django.contrib.auth import views as auth_view
+
+
 
 
 
@@ -29,6 +33,8 @@ urlpatterns = [
     path('', home_page, name='homepage'),
     path('about/', about_page, name='aboutpage'),
     path('signup/', sign_page, name='signpage'),
+    path('login/', auth_view.LoginView.as_view(template_name = 'blog/login.html'), name='loginpage'),
+
 
     path('blogs', include('blog.urls')),
 ]

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.db.models import Q
 from .models import Blog, Comment, Author, Category
 from .forms import BlogForm, CommentForm, AuthorForm
-
+from django.contrib.auth.forms import UserCreationForm
 # home page
 def home_page(request):
     # render all blogs in the home page: Get: get all blogs
@@ -16,7 +16,14 @@ def about_page(request):
 
 # sign up page
 def sign_page(request):
-    return render(request, 'blog/signup.html')
+    form = UserCreationForm()
+    return render(request, 'blog/signup.html', {'form': form})
+
+
+# login page
+def login_page(request):
+    # form = UserCreationForm()
+    return render(request, 'blog/login.html')
 
 # Create views for Blogs here
 # Get: get a blog
