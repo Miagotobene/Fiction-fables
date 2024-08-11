@@ -51,6 +51,93 @@ urlpatterns = [
 
 ```
 
+## Code Snippets
+
+```py
+# Create blogs model here
+class Blog(models.Model):
+    Active = 'active'
+    Draft = 'Draft'
+
+    # status of a post 
+    STATUS = (
+        (Active, 'Active'),
+        (Draft, 'Draft')
+    )
+
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='blogs')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='blogs')
+    title = models.CharField(max_length=100)
+    slug  = models.SlugField()
+    intro = models.TextField()
+    content = models.TextField()
+    cover_url = models.CharField(max_length=200)
+    created_on = models.DateTimeField(auto_now_add= True)
+    updated_on = models.DateTimeField(auto_now= True)
+    status = models.CharField(max_length=10, choices=STATUS, default = Active)
+
+    class Meta:
+        ordering = ('-created_on',)
+
+
+    def __str__(self):
+        return self.title
+
+```
+
+```py
+ Create views for Blogs here
+# Get: get a blog
+def blog_detail(request, pk):
+    blog = Blog.objects.get(pk=pk, status=Blog.Active)
+
+    # Comment form code goes here
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.blog = blog
+            comment.save()
+            return redirect('blog_detail', pk=pk)
+    else:
+        form = CommentForm()
+    
+    return render(request, 'blog/blog_detail.html', {'blog': blog, 'form': form})
+
+# Post: create a blog
+def blog_create(request):
+    if request.method == 'POST':
+        form = BlogForm(request.POST)
+        if form.is_valid():
+            blog = form.save()
+            return redirect('blog_detail', pk=blog.pk)
+    else:
+        form = BlogForm()
+    return render(request, 'blog/blog_form.html', {'form': form})
+
+
+#  Edit a blog
+def blog_edit(request, pk):
+    blog = Blog.objects.get(pk=pk, status=Blog.Active)
+    if request.method == "POST":
+        form = BlogForm(request.POST, instance=blog)
+        if form.is_valid():
+            blog = form.save()
+            return redirect('blog_detail', pk=pk)
+    else:
+        form = BlogForm(instance=blog)
+    return render(request, 'blog/edit_form.html', {'form': form})
+
+
+# Delete a blog
+def blog_delete(request, pk):
+    blog = Blog.objects.get(id=pk)
+    if request.method == 'POST':
+        blog.delete()
+        return redirect('home_page')
+    return render(request, 'blog/delete_form.html', {'blog': blog})
+```
+
 ## User Stories
 
 1. **Create an account:**
