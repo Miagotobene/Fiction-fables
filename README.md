@@ -1,4 +1,4 @@
-# SEI SEBPT220 Project 4: Fiction Fables
+# SEI SEBPT220 Project 4: Tiny Fables
 
 Tiny Fables is a blog application enabling users to share their stories with others.
 
