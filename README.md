@@ -157,7 +157,7 @@ def blog_delete(request, pk):
 5. **Read comments on a blog:**
    - User can read comments on their blogs
 6. **Add comments to a different blog:**
-   - User can comment on another user's blog
+   - User can comment another user's blog
 7. **Search for blogs:**
    - User can search for a blog with a particular title
 
