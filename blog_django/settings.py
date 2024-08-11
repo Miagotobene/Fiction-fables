@@ -35,8 +35,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # DEBUG = True
 
 ALLOWED_HOSTS = [
-    'blog-project-2nmo.onrender.com',
-    'https://blog-project-2nmo.onrender.com'
+    # 'blog-project-2nmo.onrender.com',
+    # 'https://blog-project-2nmo.onrender.com'
 ]
 
 
@@ -91,23 +91,23 @@ WSGI_APPLICATION = 'blog_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'blog',
-#         # 'USER': 'bloguser',
-#         # 'PASSWORD': 'blog',
-#         # 'HOST': 'localhost'
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.config(
-        # Replace this value with your local database's connection string.
-        default=DATABASE_URL,
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog',
+        # 'USER': 'bloguser',
+        # 'PASSWORD': 'blog',
+        # 'HOST': 'localhost'
+    }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         # Replace this value with your local database's connection string.
+#         default=DATABASE_URL,
+#         conn_max_age=600
+#     )
+# }
 
 
 # Password validation
