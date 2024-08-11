@@ -19,6 +19,9 @@ Django Web App. created with Python, Django and SQL.
 - https://flashfictionmagazine.com/blog/2024/08/06/a-minor-prophet/
 
 ## Features
+- ** ERD:**
+<img width="1061" alt="Screenshot 2024-08-06 at 9 55 55 PM" src="https://github.com/user-attachments/assets/c0ac9d60-db2e-498a-93fa-29106a2a74e9">
+
 
 ### Front End Routing
 
