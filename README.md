@@ -22,6 +22,9 @@ Django Web App. created with Python, Django and SQL.
 - ** ERD:**
 <img width="1061" alt="Screenshot 2024-08-06 at 9 55 55 PM" src="https://github.com/user-attachments/assets/c0ac9d60-db2e-498a-93fa-29106a2a74e9">
 
+- ** Wireframe:**
+![image](https://github.com/user-attachments/assets/a747e726-e607-44cf-8e8a-b8115bad5d49)
+
 
 ### Front End Routing
 
