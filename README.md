@@ -1,6 +1,6 @@
 # SEI SEBPT220 Project 4: Fiction Fables
 
-Tiny Fables is a blog application enabling user to share their stories with others.
+Tiny Fables is a blog application enabling users to share their stories with others.
 
 <img width="1385" alt="Screenshot 2024-08-10 at 7 57 39 PM" src="https://github.com/user-attachments/assets/aad475f7-7166-4efa-a6cc-d40ebfec900d">
 
