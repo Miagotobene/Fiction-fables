@@ -2,6 +2,9 @@
 
 Tiny Fables is a blog application enabling user to share their stories with others.
 
+<img width="1385" alt="Screenshot 2024-08-10 at 7 57 39 PM" src="https://github.com/user-attachments/assets/aad475f7-7166-4efa-a6cc-d40ebfec900d">
+
+
 ## How It Works
 
 Registered users can write and post blogs. They can also edit or delete their blogs, or choose to read comments left by readers.
@@ -102,3 +105,13 @@ To set up this project locally, follow these steps:
      ```
      'http://localhost:8000'
      ```
+## Mockups
+
+![Screenshot 2024-08-10 at 8 03 40 PM](https://github.com/user-attachments/assets/1cc701c3-706a-4ecc-80cb-f6ef9753480f)
+
+
+<img width="609" alt="Screenshot 2024-08-10 at 7 58 33 PM" src="https://github.com/user-attachments/assets/9e678676-38d5-425d-a1e7-9d5ed863dc1e">
+
+
+
+
