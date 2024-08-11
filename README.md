@@ -9,7 +9,7 @@ Tiny Fables is a blog application enabling users to share their stories with oth
 
 Registered users can write and post blogs. They can also edit or delete their blogs, or choose to read comments left by readers.
 
-## Event-Flow-Frontendx
+## Tiny Fables-Frontend
 
 Django Web App. created with Python, Django and SQL.
 
